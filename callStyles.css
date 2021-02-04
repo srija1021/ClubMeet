@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+}
+
+#flexContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#leftPane{
+    background-color: #a9d0d1;
+    width: 25vw;
+    height: 100vh;
+    position: relative;
+}
+
+#rightPane{
+    flex: 1;
+    background-color: #c6b4e9;
+    position: relative;
+}
+
+#meetingInfo{
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width: 70%;
+    height: 20%;
+    text-align: center;
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: #581ecb;
+    font-size: 125%;
+    color: white;
+    padding: 10px;
+    position: relative;
+}
+
+#selfStream{
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 75%;
+    height: 30%;
+    justify-self: center;
+    border: 3px solid #581ecb;
+    border-radius: 10px;
+    resize: both;
+    overflow: auto;
+    position: relative;
+    max-width: 100%;
+}
+
+#controlBox{
+    margin: 0 auto;
+    height: 50px;
+    width: 180px;
+    justify-self: center;
+    text-align: center;
+}
+
+.control{
+    height: 35px;
+    width: 35px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+#buttonContainer{
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10%;
+    text-align: center;
+    width: 100%;
+    height: 40px;
+}
+
+#leaveButton{
+    width: 50%;
+    height: 100%;
+    background-color: #581ecb;
+    color: white;
+    font-family: 'Courier Prime', monospace;
+    font-size: 16px;
+    padding: 2px;
+    border-radius: 5px;
+    border: 0px;
+    outline-color: white;
+    cursor: pointer;
+}
+
+#leaveButton:hover{
+    border: 2px solid white;
+}
+
+#remoteStream{
+    margin: 0 auto;
+    margin-top: 3.25%;
+    text-align: left;
+    justify-self: center;
+    width: 90%;
+    height: 90%;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+
+

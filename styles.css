@@ -1,0 +1,84 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier Prime', monospace;
+}
+
+#fullContainer{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(assets/main_background.jpg);  
+    background-size: 100% 100%;
+}
+
+#headingContainer{
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+}
+
+#headingText{
+    font-family:'Courier Prime';
+    font-size: 28px;
+    letter-spacing: 2px;
+    line-height: 40px;
+}
+
+#centerPane{
+    width: 270;
+    height: 320px;
+    margin: 0 auto;
+    margin-top: 35px;
+    background-color: white;
+    box-shadow: 0px 4px 52px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    position: relative;
+}
+
+#loginContainer{
+    width: 100%;
+    height: 250px;
+    margin-top: 15px;
+    padding-top: 20px;
+    text-align: center;
+    position: absolute;
+}
+
+input{
+    padding: 5px;
+    width: 70%;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-family: 'Courier Prime';
+    font-size: 16px;
+    background-color: #c4c4c4;
+    border: 0px;
+    color: black;
+    outline-color: #5897da;
+}
+
+::placeholder{
+    color: white;
+    opacity: 1;
+    font-family: 'Courier Prime';
+}
+
+#joinButton{
+    margin-top: 20px;
+    width: 80px;
+    height: 50px;
+    font-size: 16px;
+    font-family: 'Courier Prime';
+    background-color: #c4c4c4;
+    border-radius: 5px;
+    border: 0px;
+    color: black;
+    outline-color: black;
+    cursor: pointer;
+}
+
+#joinButton:hover{
+    background-color: #5897da;
+}
