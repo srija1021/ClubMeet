@@ -52,6 +52,7 @@ function addVideoStream(streamId){
     streamDiv.style.display = "inline-block"
     streamDiv.style.border = "3px solid #581ecb"
     streamDiv.style.marginInlineEnd = "10px"
+    streamDiv.style.marginBottom = "10px"
     streamDiv.style.borderRadius = "10px"
     streamDiv.style.resize = "both"
     streamDiv.style.overflow = "auto"
@@ -148,13 +149,17 @@ function startCall() {
     client.on("active-speaker", function(evt) {
         console.log("Update active speaker: client " + evt.uid)
         let userId = evt.stream.getId()
-        let speakerDiv = document.getElementById(userId)
-        speakerDiv.style.border = "3px solid #3ceaf7"
+        lightSpeaker(userId)
     })
 }
 
 let videoIcon = document.getElementById("videoMute");
 let micIcon = document.getElementById("audioMute");
+
+function lightSpeaker(userId) {
+    let speakerDiv = document.getElementById(userId)
+    speakerDiv.style.border = "3px solid #3ceaf7"
+}
 
 function muteVideo() {
     if (!isVideoMuted) {
