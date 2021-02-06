@@ -50,6 +50,8 @@ function addVideoStream(streamId){
     streamDiv.style.marginInlineEnd = "10px"
     streamDiv.style.marginBottom = "10px"
     streamDiv.style.borderRadius = "10px"
+    streamDiv.style.minHeight = "160px"
+    streamDiv.style.minWidth = "220px"
     streamDiv.style.resize = "both"
     streamDiv.style.overflow = "auto"
     streamDiv.style.position = "relative"
