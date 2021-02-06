@@ -28,25 +28,21 @@ function removeVideoStream(evt){
 }
 
 function addVideoStream(streamId){
-    console.log()
-    // let newPeer = document.createElement("div")
+    console.log("Adding stream")
     let streamDiv = document.createElement("div")
     streamDiv.id = streamId 
     
-    var nameNode = document.createElement("div")
-    // var nameContainer = document.createElement("div")
-    var name = document.createTextNode(streamId)
-    // nameContainer.appendChild(name)
+    let nameNode = document.createElement("div")
+    let name = document.createTextNode(streamId)
     nameNode.appendChild(name)
     nameNode.style.backgroundColor = "#581ecb"
     nameNode.style.height = "20px"
     nameNode.style.padding = "5px"
-    nameNode.style.textAlign = "center"
+    nameNode.style.textAlign = "left"
     nameNode.style.color = "white"
     nameNode.style.fontFamily = "inherit"
     nameNode.style.fontSize = "16px"
 
-    // streamDiv.style.transform = "rotateY(180deg)"
     streamDiv.style.height = "160px"
     streamDiv.style.width = "220px"
     streamDiv.style.display = "inline-block"
@@ -58,15 +54,18 @@ function addVideoStream(streamId){
     streamDiv.style.overflow = "auto"
     streamDiv.style.position = "relative"
 
-    // newPeer.style.width = "220px"
-    // newPeer.style.position = "relative"
-    // newPeer.style.display = "inline-block"
-    // newPeer.style.textAlign = "center"
-    // newPeer.style.backgroundColor = "white"
+    let micCross = document.createElement("img")
+    micCross.id = streamId + "micCross"
+    micCross.setAttribute("src", "assets/muted.png")
+    micCross.setAttribute("width", "15px")
+    micCross.setAttribute("height", "15px")
+    micCross.style.marginLeft = "15px"
+    nameNode.appendChild(micCross)
+    micCross.style.visibility = "hidden";
 
     streamDiv.appendChild(nameNode)
-    // newPeer.appendChild(streamDiv)
     remoteContainer.appendChild(streamDiv)
+    console.log("Added stream")
 } 
 
 function leaveNow() {
@@ -85,15 +84,13 @@ function joinNow() {
 
 function startCall() {
     var nameNode = document.createElement("div")
-    // var nameContainer = document.createElement("div")
     var name = document.createTextNode(localStorage.getItem("username"))
-    // nameContainer.appendChild(name)
     nameNode.appendChild(name)
     document.getElementById("selfStream").appendChild(nameNode)
     nameNode.style.backgroundColor = "#581ecb"
     nameNode.style.height = "20px"
     nameNode.style.padding = "5px"
-    nameNode.style.textAlign = "center"
+    nameNode.style.textAlign = "left"
     nameNode.style.color = "white"
     nameNode.style.fontFamily = "inherit"
     nameNode.style.fontSize = "16px"
@@ -146,20 +143,31 @@ function startCall() {
         removeVideoStream(evt)
     })
 
-    client.on("active-speaker", function(evt) {
-        console.log("Update active speaker: client " + evt.uid)
-        let userId = evt.stream.getId()
-        lightSpeaker(userId)
-    })
+    client.on("mute-audio", function(evt) {
+        var uid = evt.uid
+        console.log("mute audio:" + uid)
+        showMic(uid)
+    });
+
+    client.on("unmute-audio", function (evt) {
+        var uid = evt.uid
+        console.log("unmute audio:" + uid)
+        hideMic(uid)
+    });
+}
+
+function showMic(userId) {
+    let micImg = document.getElementById(userId + "micCross");
+    micImg.style.visibility = "visible";
+}
+
+function hideMic(userId) {
+    let micImg = document.getElementById(userId + "micCross");
+    micImg.style.visibility = "hidden";
 }
 
 let videoIcon = document.getElementById("videoMute");
 let micIcon = document.getElementById("audioMute");
-
-function lightSpeaker(userId) {
-    let speakerDiv = document.getElementById(userId)
-    speakerDiv.style.border = "3px solid #3ceaf7"
-}
 
 function muteVideo() {
     if (!isVideoMuted) {

@@ -9,12 +9,6 @@ body{
     flex-direction: row;
 }
 
-#screenSharePane{
-    width: 5vw;
-    height: 100vh;
-    resize: horizontal;
-}
-
 #leftPane{
     background-color: #a9d0d1;
     width: 25vw;
